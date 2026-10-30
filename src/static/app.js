@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
       loginBtn.classList.add("hidden");
       logoutBtn.classList.remove("hidden");
       userIcon.textContent = "👨‍🏫";
-      emailInput.parentElement.classList.add("hidden");
     } else {
       loginBtn.classList.remove("hidden");
       logoutBtn.classList.add("hidden");
