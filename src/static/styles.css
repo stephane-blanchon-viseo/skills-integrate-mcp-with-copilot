@@ -30,15 +30,9 @@ header h1 {
 
 main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 30px;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr;
-  }
+  justify-content: flex-start;
 }
 
 section {
@@ -47,7 +41,15 @@ section {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+}
+
+#email-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#activities-container {
+  width: 100%;
 }
 
 section h3 {
@@ -72,6 +74,34 @@ section h3 {
 
 .activity-card p {
   margin-bottom: 8px;
+}
+
+.activity-actions {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.register-btn {
+  flex: 1;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.register-btn:hover {
+  background-color: #3949ab;
+}
+
+#activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 /* New styles for participants section */
