@@ -43,8 +43,10 @@ The application uses a simple data model with meaningful identifiers:
    - Maximum number of participants allowed
    - List of student emails who are signed up
 
+   Activity definitions are stored in `activities.json` next to `app.py`, so they can be changed without editing Python code.
+
 2. **Students** - Uses email as identifier:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+Activity definitions are loaded from `activities.json` when the server starts. Signup changes are stored in memory and will be reset when the server restarts.
