@@ -254,10 +254,6 @@ button:hover {
   border: 1px solid #bee5eb;
 }
 
-.hidden {
-  display: none;
-}
-
 /* Modal styles */
 .modal {
   position: fixed;
@@ -270,6 +266,14 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none;
 }
 
 .modal-content {
@@ -315,8 +319,14 @@ button:hover {
   transition: background-color 0.2s;
 }
 
-.primary-btn:hover {
+.primary-btn:hover:not(:disabled) {
   background-color: #3949ab;
+}
+
+.primary-btn:disabled {
+  background-color: #9fa8da;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .secondary-btn {
@@ -338,11 +348,25 @@ button:hover {
 
 #login-error {
   margin-top: 10px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
   background-color: #ffebee;
   color: #c62828;
   border: 1px solid #ef9a9a;
+  font-weight: 500;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 .view-only-notice {

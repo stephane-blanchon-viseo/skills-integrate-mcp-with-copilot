@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Disable login button during submission
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Logging in...";
+
     try {
       const response = await fetch("/login", {
         method: "POST",
@@ -58,13 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
         usernameInput.value = "";
         passwordInput.value = "";
         loginError.classList.add("hidden");
-        showMessage("Login successful!", "success");
+        showMessage("✓ Login successful! You can now manage student registrations.", "success");
       } else {
-        showLoginError("Invalid username or password");
+        const errorData = await response.json();
+        showLoginError("❌ " + (errorData.detail || "Invalid username or password"));
       }
     } catch (error) {
-      showLoginError("Login failed. Please try again.");
+      showLoginError("❌ Login failed. Please check your internet connection and try again.");
       console.error("Error logging in:", error);
+    } finally {
+      loginBtn.disabled = false;
+      loginBtn.textContent = "Login";
     }
   });
 
